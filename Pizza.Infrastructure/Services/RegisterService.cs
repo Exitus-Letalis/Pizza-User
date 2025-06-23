@@ -8,7 +8,7 @@ using Pizza.Infrastructure.persistense;
 namespace Pizza.Infrastructure.Services
 {
     // Реалізація сервісу реєстрації та логіну користувачів
-    public class RegisterService(UserContext db) : IRegister
+    public class RegisterService(UserContext db) : IAuthService
     {
         // Контекст бази даних, який використовується для доступу до таблиці користувачів
         private readonly UserContext _db = db;

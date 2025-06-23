@@ -16,7 +16,7 @@ namespace Pizza.API
             var builder = WebApplication.CreateBuilder(args);
 
             //  сервіси в контейнер залежностей
-            builder.Services.AddTransient<IRegister, RegisterService>();
+            builder.Services.AddTransient<IAuthService, RegisterService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

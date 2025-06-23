@@ -14,11 +14,11 @@ namespace Pizza.Application.features.auth
 
     }
     /// Обробник команди реєстрації користувача
-    public class RegistrarionCommandHendler(IRegister register ) : IRequestHandler<RegistrationCommand, string>
+    public class RegistrarionCommandHendler(IAuthService register ) : IRequestHandler<RegistrationCommand, string>
 
     {
         // Впровадження IRegister для реєстрації користувача
-        private readonly IRegister _register = register;
+        private readonly IAuthService _register = register;
         // Обробник команди реєстрації користувача
         public async Task<string> Handle(RegistrationCommand request, CancellationToken cancellationToken)
         {

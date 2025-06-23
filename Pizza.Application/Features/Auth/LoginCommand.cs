@@ -12,10 +12,10 @@ namespace Pizza.Application.features.auth
         public string Password { get; set; } = null;
     }
     /// Обробник команди входу користувача
-    public class LoginCommandHendler(IRegister login) : IRequestHandler<LoginCommand, string>
+    public class LoginCommandHendler(IAuthService login) : IRequestHandler<LoginCommand, string>
     {
         // Обробник команди входу користувача
-        private readonly IRegister _login = login;
+        private readonly IAuthService _login = login;
         public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             // створення об'єкта UserLoginDto з даними користувача

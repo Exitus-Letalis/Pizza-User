@@ -3,7 +3,7 @@ using Pizza.Domain.Entity.DTO;
 
 namespace Pizza.Domain.Common
 {
-    public interface IRegister
+    public interface IAuthService
     {
         // Метод для реєстрації нового користувача
         Task<string> Registration(UserRegistrDto registrationId);
