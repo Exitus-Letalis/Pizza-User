@@ -1,6 +1,6 @@
 @Pizza.API_HostAddress = https://localhost:7228
 
-
+// Запит на відправку даних для реєстрації нового користувача
 POST {{Pizza.API_HostAddress}}/api/register/register
 Content-Type: application/json
 

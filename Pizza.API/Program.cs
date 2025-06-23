@@ -15,19 +15,19 @@ namespace Pizza.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            //  сервіси в контейнер залежностей
             builder.Services.AddTransient<IRegister, RegisterService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(RegistrationCommand).Assembly));
             builder.Services.AddSwaggerGen();
-
+            //  контекст бази даних
             builder.Services.AddDbContext<UserContext>(opts => opts.UseNpgsql(builder.Configuration.GetConnectionString("ApiDataBase")));
 
             var app = builder.Build();
-           
-            // Configure the HTTP request pipeline.
+
+            
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
