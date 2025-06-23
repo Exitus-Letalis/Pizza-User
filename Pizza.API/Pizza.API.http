@@ -1,6 +1,14 @@
-@Pizza.API_HostAddress = http://localhost:5219
+@Pizza.API_HostAddress = https://localhost:7228
 
-GET {{Pizza.API_HostAddress}}/weatherforecast/
-Accept: application/json
+
+POST {{Pizza.API_HostAddress}}/api/register/register
+Content-Type: application/json
+
+{
+ Name: "John Doe",
+ Email: "emaspfsdkf@gmail.com",
+ Password: "123556"
+}
 
 ###
+

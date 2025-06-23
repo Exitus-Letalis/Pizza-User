@@ -21,11 +21,25 @@ namespace Pizza.Infrastructure.Services
                     return (user.Id.ToString());
                 }
             }
-            return ("Error");
+            return ("ErrorLogin");
         }
 
         public async Task<string> Registration(UserRegistrDto registrationId)
         {
+            bool isValid = System.Text.RegularExpressions.Regex.IsMatch(registrationId.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            if (registrationId.Name == null || registrationId.Name.Length <= 4)
+            {
+                return ("ErrorName");
+            }
+            else if (registrationId.Password == null || registrationId.Password.Length <= 5)
+            {
+                return ("ErrorPassword");
+            }
+            else if (!isValid)
+            {
+                return ("ErrorEmail");
+            }
+
             var user = new User
             {
                 Name = registrationId.Name,
@@ -36,5 +50,5 @@ namespace Pizza.Infrastructure.Services
             await _db.SaveChangesAsync();
             return (user.Name);
         }
-    }
+    }   
 }
